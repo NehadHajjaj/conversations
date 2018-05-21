@@ -17,16 +17,16 @@ namespace Conversations.Core.Commands
 
         public override void Handle(Request command)
         {
-            var conversation = context.GetConversation(command.ConversationId);
-            context.ArchiveConversation(conversation, command.UserId);
+            var conversation = this.context.GetConversation(command.ConversationId);
+			this.context.ArchiveConversation(conversation.Id, command.UserId);
         }
 
         public class Request
         {
             public Request(int conversationId, int userId)
             {
-                ConversationId = conversationId;
-                UserId = userId;
+				this.ConversationId = conversationId;
+				this.UserId = userId;
             }
 
             public int UserId { get; }

@@ -1,30 +1,30 @@
-﻿using System.Collections.Generic;
-using Conversations.Core.Commands.Core;
-using Conversations.Core.Domain;
-using Conversations.Core.Repositories;
-
-namespace Conversations.Core.Commands
+﻿namespace Conversations.Core.Commands
 {
-    /// <summary>
-    ///     Get list of opned conversation .
-    /// </summary>
-    public class GetConversations : RequestHandler<GetConversations.Request, IEnumerable<ConversationData>>
-    {
-        private readonly IConversationsRepository context;
+	using System.Collections.Generic;
+	using Conversations.Core.Commands.Core;
+	using Conversations.Core.Domain;
+	using Conversations.Core.Repositories;
 
-        public GetConversations(IConversationsRepository context)
-        {
-            this.context = context;
-        }
+	/// <summary>
+	///     Get list of opned conversation .
+	/// </summary>
+	public class GetConversations : RequestHandler<GetConversations.Request, IEnumerable<ConversationData>>
+	{
+		private readonly IConversationsRepository context;
 
-        public override IEnumerable<ConversationData> Handle(Request command)
-        {
-            return command.Opened ? context.GetOpenedConversations() : context.GetAllConversations();
-        }
+		public GetConversations(IConversationsRepository context)
+		{
+			this.context = context;
+		}
 
-        public class Request
-        {
-            public bool Opened { get; set; }
-        }
-    }
+		public override IEnumerable<ConversationData> Handle(Request command)
+		{
+			return command.Opened ? this.context.GetOpenedConversations() : this.context.GetAllConversations();
+		}
+
+		public class Request
+		{
+			public bool Opened { get; set; }
+		}
+	}
 }

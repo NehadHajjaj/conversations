@@ -1,34 +1,34 @@
-﻿using Conversations.Core.Commands.Core;
-using Conversations.Core.Domain;
-using Conversations.Core.Repositories;
-
-namespace Conversations.Core.Commands
+﻿namespace Conversations.Core.Commands
 {
-    /// <summary>
-    ///     Get conversation .
-    /// </summary>
-    public class GetConversation : RequestHandler<GetConversation.Request, ConversationData>
-    {
-        private readonly IConversationsRepository context;
+	using Conversations.Core.Commands.Core;
+	using Conversations.Core.Domain;
+	using Conversations.Core.Repositories;
 
-        public GetConversation(IConversationsRepository context)
-        {
-            this.context = context;
-        }
+	/// <summary>
+	///     Get conversation .
+	/// </summary>
+	public class GetConversation : RequestHandler<GetConversation.Request, ConversationData>
+	{
+		private readonly IConversationsRepository context;
 
-        public override ConversationData Handle(Request command)
-        {
-            return context.GetConversation(command.Id);
-        }
+		public GetConversation(IConversationsRepository context)
+		{
+			this.context = context;
+		}
 
-        public class Request
-        {
-            public readonly object Id;
+		public override ConversationData Handle(Request command)
+		{
+			return this.context.GetConversation(command.Id);
+		}
 
-            public Request(object id)
-            {
-                Id = id;
-            }
-        }
-    }
+		public class Request
+		{
+			public readonly int Id;
+
+			public Request(int id)
+			{
+				this.Id = id;
+			}
+		}
+	}
 }

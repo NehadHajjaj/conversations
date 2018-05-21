@@ -30,8 +30,8 @@ namespace Conversations.Core.Domain
             };
 
 			conversation.Comments = data.Comments.Select(c => Comment<T>.Load(c, conversation, userRepository)).ToList();
-
 			return conversation;
 		}
+
 	}
 }

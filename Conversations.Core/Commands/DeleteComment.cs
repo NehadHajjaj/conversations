@@ -19,13 +19,17 @@ namespace Conversations.Core.Commands
 
         public override void Handle(Request command)
         {
-            var item = context.GetComment(command.CommentId);
-            if (command.UserId == item.AuthorId && item.PostedOn > DateTime.UtcNow.AddHours(-12))
+            var item = this.context.GetComment(command.CommentId);
+
+			if (command.UserId == item.AuthorId && item.PostedOn > DateTime.UtcNow.AddHours(-12))
             {
                 if (item.ConversationDocuments != null && item.ConversationDocuments.Any())
-                    foreach (var doc in item.ConversationDocuments?.ToList())
-                        context.RemoveConversationDocuments(doc);
-                context.RemoveComments(item);
+
+					foreach (var doc in item.ConversationDocuments?.ToList())
+					{
+						this.context.RemoveConversationDocument(doc.DocumentId);
+					}
+				this.context.RemoveComment(item.Id);
             }
         }
 
@@ -36,8 +40,8 @@ namespace Conversations.Core.Commands
 
             public Request(int commentId, int userId)
             {
-                CommentId = commentId;
-                UserId = userId;
+				this.CommentId = commentId;
+				this.UserId = userId;
             }
         }
     }

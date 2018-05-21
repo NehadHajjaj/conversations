@@ -22,61 +22,61 @@ namespace Conversations.Core
         {
             this.context = context;
 
-            addCommentHandler = new AddComment(context);
-            getCommentByIdHandler = new GetCommentById(context);
-            deleteDocumentHandler = new DeleteDocument(context);
-            deleteCommentHandler = new DeleteComment(context);
-            createConversationHandler = new CreateConversation(context);
-            archiveConversationHandler = new ArchiveConversation(context);
-            unArchiveConversationHandler = new UnArchiveConversation(context);
-            getConversation = new GetConversation(context);
-            getConversations = new GetConversations(context);
+			this.addCommentHandler = new AddComment(context);
+			this.getCommentByIdHandler = new GetCommentById(context);
+			this.deleteDocumentHandler = new DeleteDocument(context);
+			this.deleteCommentHandler = new DeleteComment(context);
+			this.createConversationHandler = new CreateConversation(context);
+			this.archiveConversationHandler = new ArchiveConversation(context);
+			this.unArchiveConversationHandler = new UnArchiveConversation(context);
+			this.getConversation = new GetConversation(context);
+			this.getConversations = new GetConversations(context);
         }
 
 
         public CommentIdentifier AddComment(AddComment.Request request)
         {
-            return addCommentHandler.Handle(request);
+            return this.addCommentHandler.Handle(request);
         }
 
         public CommentData GetComment(GetCommentById.Request request)
         {
-            return getCommentByIdHandler.Handle(request);
+            return this.getCommentByIdHandler.Handle(request);
         }
 
         public void DeleteComment(DeleteComment.Request request)
         {
-            deleteCommentHandler.Handle(request);
+			this.deleteCommentHandler.Handle(request);
         }
 
         public void DeleteDocument(DeleteDocument.Request request)
         {
-            deleteDocumentHandler.Handle(request);
+			this.deleteDocumentHandler.Handle(request);
         }
 
         public void ArchiveConversation(ArchiveConversation.Request request)
         {
-            archiveConversationHandler.Handle(request);
+			this.archiveConversationHandler.Handle(request);
         }
 
         public void UnArchiveConversation(UnArchiveConversation.Request request)
         {
-            unArchiveConversationHandler.Handle(request);
+			this.unArchiveConversationHandler.Handle(request);
         }
 
         public ConversationIdentifier CreateConversation(CreateConversation.Request request)
         {
-            return createConversationHandler.Handle(request);
+            return this.createConversationHandler.Handle(request);
         }
 
         public ConversationData GetConversation(GetConversation.Request request)
         {
-            return getConversation.Handle(request);
+            return this.getConversation.Handle(request);
         }
 
         public IEnumerable<ConversationData> GetOpenedConversations()
         {
-            return getConversations.Handle(new GetConversations.Request
+            return this.getConversations.Handle(new GetConversations.Request
             {
                 Opened = true
             });
@@ -84,12 +84,12 @@ namespace Conversations.Core
 
         public IEnumerable<ConversationData> GetAllConversations()
         {
-            return getConversations.Handle(new GetConversations.Request());
+            return this.getConversations.Handle(new GetConversations.Request());
         }
 
-        public int DeleteConversation(object key)
+        public void DeleteConversation(int key)
         {
-            return context.DeleteConversation(key);
+            this.context.DeleteConversation(key);
         }
     }
 }

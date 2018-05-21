@@ -1,52 +1,46 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Conversations.Core.Commands.Core;
-using Conversations.Core.Domain;
-using Conversations.Core.Repositories;
-
-namespace Conversations.Core.Commands
+﻿namespace Conversations.Core.Commands
 {
-    /// <summary>
-    ///     Adds a comment to an existing conversation.
-    /// </summary>
-    public class AddComment : RequestHandler<AddComment.Request, CommentIdentifier>
-    {
-        private readonly IConversationsRepository context;
+	using System.Collections.Generic;
+	using Conversations.Core.Commands.Core;
+	using Conversations.Core.Domain;
+	using Conversations.Core.Repositories;
 
-        public AddComment(IConversationsRepository context)
-        {
-            this.context = context;
-        }
+	/// <summary>
+	///     Adds a comment to an existing conversation.
+	/// </summary>
+	public class AddComment : RequestHandler<AddComment.Request, CommentIdentifier>
+	{
+		private readonly IConversationsRepository context;
 
-        public override CommentIdentifier Handle(Request command)
-        {
-            var documents = command.DocumentIds.Select(id => new ConversationDocument
-                {
-                    DocumentId = id
-                })
-                .ToList();
-            var comment = context.AddConversationComment(command.Key, command.UserId, command.Text, documents,
-                command.ParentCommentId);
+		public AddComment(IConversationsRepository context)
+		{
+			this.context = context;
+		}
 
-            return new CommentIdentifier(comment.Id);
-        }
+		public override CommentIdentifier Handle(Request command)
+		{
+			var comment = this.context.AddConversationComment(command.Key, command.UserId, command.Text, command.DocumentIds,
+				command.ParentCommentId);
 
-        public class Request
-        {
-            public readonly string Key;
-            public readonly int? ParentCommentId;
-            public readonly string Text;
-            public readonly int UserId;
-            public List<int> DocumentIds;
+			return new CommentIdentifier(comment.Id);
+		}
 
-            public Request(string key, int userId, string text, int? parentCommentId, List<int> documentIds)
-            {
-                Key = key;
-                UserId = userId;
-                Text = text;
-                ParentCommentId = parentCommentId;
-                DocumentIds = documentIds;
-            }
-        }
-    }
+		public class Request
+		{
+			public readonly string Key;
+			public readonly int? ParentCommentId;
+			public readonly string Text;
+			public readonly int UserId;
+			public List<int> DocumentIds;
+
+			public Request(string key, int userId, string text, int? parentCommentId, List<int> documentIds)
+			{
+				this.Key = key;
+				this.UserId = userId;
+				this.Text = text;
+				this.ParentCommentId = parentCommentId;
+				this.DocumentIds = documentIds;
+			}
+		}
+	}
 }

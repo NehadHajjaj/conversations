@@ -19,13 +19,13 @@ namespace Conversations.Core.Commands
 
         public override ConversationIdentifier Handle(Request command)
         {
-            var conversationId = context.GetConversation(command.ConversationKey)?.Id;
+            var conversationId = this.context.GetConversation(command.ConversationKey)?.Id;
 
             if (conversationId == null)
             {
                 var conversation = new ConversationData(command.ConversationKey);
 
-                conversation = context.AddConversations(conversation);
+                conversation = this.context.AddConversation(conversation.Id);
 
                 conversationId = conversation.Id;
             }

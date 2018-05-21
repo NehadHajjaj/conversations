@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversations.Core", "Conversations.Core\Conversations.Core.csproj", "{BFBD4936-DD04-41B2-9427-F637C091BE21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conversations.Core", "Conversations.Core\Conversations.Core.csproj", "{BFBD4936-DD04-41B2-9427-F637C091BE21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversations.EntityFramework", "Conversations.EntityFramework\Conversations.EntityFramework.csproj", "{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversations.EntityFramework", "Conversations.EntityFramework\Conversations.EntityFramework.csproj", "{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{BFBD4936-DD04-41B2-9427-F637C091BE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFBD4936-DD04-41B2-9427-F637C091BE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFBD4936-DD04-41B2-9427-F637C091BE21}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
