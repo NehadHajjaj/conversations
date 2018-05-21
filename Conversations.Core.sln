@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversations.Core", "Conversations.Core\Conversations.Core.csproj", "{BFBD4936-DD04-41B2-9427-F637C091BE21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversations.EntityFramework", "Conversations.EntityFramework\Conversations.EntityFramework.csproj", "{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFBD4936-DD04-41B2-9427-F637C091BE21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBD4936-DD04-41B2-9427-F637C091BE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBD4936-DD04-41B2-9427-F637C091BE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBD4936-DD04-41B2-9427-F637C091BE21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7489AB-7DB6-4417-A6BD-B7590E2939E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98A34581-D9E3-409B-8A92-622ECA3DBC6E}
+	EndGlobalSection
+EndGlobal
