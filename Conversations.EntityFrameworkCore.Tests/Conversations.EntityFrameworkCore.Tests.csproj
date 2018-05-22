@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Conversations.Core\Conversations.Core.csproj" />
-    <ProjectReference Include="..\Conversations.EntityFramework\Conversations.EntityFramework.csproj" />
   </ItemGroup>
 
 </Project>

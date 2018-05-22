@@ -2,6 +2,7 @@
 namespace Conversations.EntityFrameworkCore.Tests
 {
 	using System.IO;
+	using Conversations.Core;
 	using Conversations.EntityFramework;
 	using Microsoft.EntityFrameworkCore;
 	using Microsoft.Extensions.Configuration;
