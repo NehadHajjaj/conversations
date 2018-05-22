@@ -1,6 +1,6 @@
 ﻿namespace Conversations.Core
 {
-	using Conversations.EntityFramework.DataAccess;
+	using Conversations.Core.DataAccess;
 	using Microsoft.EntityFrameworkCore;
 
 	public class DataContext

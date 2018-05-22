@@ -1,11 +1,10 @@
-﻿namespace Conversations.EntityFramework.Mappings
+﻿namespace Conversations.Core.Mappings
 {
-    using Conversations.Core;
 	using Conversations.Core.Domain;
 	using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Metadata.Builders;
+	using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class ConversationMap : IEntityTypeConfiguration<ConversationData>
+	internal class ConversationMap : IEntityTypeConfiguration<ConversationData>
     {
         public void Configure(EntityTypeBuilder<ConversationData> entity)
         {

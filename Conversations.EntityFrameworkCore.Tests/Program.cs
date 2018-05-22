@@ -3,7 +3,6 @@
 	using System.Collections.Generic;
 	using System.Linq;
 	using Conversations.Core.Repositories;
-	using Conversations.EntityFramework.Repositories;
 	using Xunit;
 
 	[Collection(nameof(DatabaseCollectionFixture))]

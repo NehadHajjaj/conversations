@@ -1,4 +1,4 @@
-﻿namespace Conversations.EntityFramework.Mappings
+﻿namespace Conversations.Core.Mappings
 {
 	using Conversations.Core.Domain;
 	using Microsoft.EntityFrameworkCore;

@@ -1,11 +1,10 @@
-namespace Conversations.EntityFramework.Repositories
+namespace Conversations.Core.Repositories
 {
 	using System.Collections.Generic;
 	using System.Linq;
 	using Conversations.Core;
+	using Conversations.Core.DataAccess;
 	using Conversations.Core.Domain;
-	using Conversations.Core.Repositories;
-	using Conversations.EntityFramework.DataAccess;
 	using Microsoft.EntityFrameworkCore;
 
 	public class ConversationRepository : IConversationsRepository

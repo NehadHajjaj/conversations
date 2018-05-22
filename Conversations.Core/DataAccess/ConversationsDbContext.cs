@@ -1,10 +1,10 @@
-﻿namespace Conversations.EntityFramework.DataAccess
+﻿namespace Conversations.Core.DataAccess
 {
 	using Conversations.Core.Domain;
-	using Conversations.EntityFramework.Mappings;
-    using Microsoft.EntityFrameworkCore;
+	using Conversations.Core.Mappings;
+	using Microsoft.EntityFrameworkCore;
 
-    public class ConversationsDbContext : DbContext
+	public class ConversationsDbContext : DbContext
 	{
 		private const string DefaultConnectionString =
 			"Server=(localdb)\\mssqllocaldb;Database=convy;Trusted_Connection=True;MultipleActiveResultSets=true";
