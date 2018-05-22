@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conversations.Core", "Conversations.Core\Conversations.Core.csproj", "{BFBD4936-DD04-41B2-9427-F637C091BE21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversations.EntityFramework", "Conversations.EntityFramework\Conversations.EntityFramework.csproj", "{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conversations.EntityFramework", "Conversations.EntityFramework\Conversations.EntityFramework.csproj", "{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversations.EntityFrameworkCore.Tests", "Conversations.EntityFrameworkCore.Tests\Conversations.EntityFrameworkCore.Tests.csproj", "{3AF5A472-9734-4D08-A6DA-9CD00C14979D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4E28A20-B5A3-48A2-95A0-2CD69D36B547}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF5A472-9734-4D08-A6DA-9CD00C14979D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF5A472-9734-4D08-A6DA-9CD00C14979D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF5A472-9734-4D08-A6DA-9CD00C14979D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF5A472-9734-4D08-A6DA-9CD00C14979D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

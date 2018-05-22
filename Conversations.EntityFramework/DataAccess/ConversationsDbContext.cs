@@ -6,16 +6,22 @@
 
     public class ConversationsDbContext : DbContext
 	{
-        public ConversationsDbContext()
-	    	: base(new DbContextOptionsBuilder().UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=conv;Trusted_Connection=True;MultipleActiveResultSets=true").Options)
-	    {
-        }
+		private const string DefaultConnectionString =
+			"Server=(localdb)\\mssqllocaldb;Database=convy;Trusted_Connection=True;MultipleActiveResultSets=true";
 
-        public ConversationsDbContext(DbContextOptions options) : base(options)
-	    {
-	    }
+		private readonly string schema;
 
-	    public virtual DbSet<CommentData> Comments { get; set; }
+		public ConversationsDbContext()
+			: this(new DbContextOptionsBuilder().UseSqlServer(DefaultConnectionString).Options, "cnv")
+		{
+		}
+      
+		public ConversationsDbContext(DbContextOptions options, string schema) : base(options)
+		{
+			this.schema = schema;
+		}
+
+		public virtual DbSet<CommentData> Comments { get; set; }
 	    public virtual DbSet<ConversationData> Conversations { get; set; }
 	    public virtual DbSet<ConversationDocument> ConversationDocuments { get; set; }
 
