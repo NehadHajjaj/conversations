@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conversations.Core", "Conversations.Core\Conversations.Core.csproj", "{BFBD4936-DD04-41B2-9427-F637C091BE21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conversations", "Conversations\Conversations.csproj", "{BFBD4936-DD04-41B2-9427-F637C091BE21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conversations.EntityFrameworkCore.Tests", "Conversations.EntityFrameworkCore.Tests\Conversations.EntityFrameworkCore.Tests.csproj", "{3AF5A472-9734-4D08-A6DA-9CD00C14979D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conversations.Tests", "Conversations.Tests\Conversations.Tests.csproj", "{3AF5A472-9734-4D08-A6DA-9CD00C14979D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
