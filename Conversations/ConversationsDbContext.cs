@@ -5,8 +5,8 @@
 	using Microsoft.EntityFrameworkCore;
 
 	public class ConversationsDbContext<TAuthorKey, TConversation, TComment> : DbContext
-		where TComment : Comment<TAuthorKey>
-		where TConversation : Conversation<TAuthorKey>, new()
+		where TComment : Comment<TAuthorKey>, new()
+		where TConversation : Conversation<TAuthorKey, TComment>, new()
 	{
 		private readonly string schema;
 
@@ -34,7 +34,7 @@
 			}
 		}
 
-		public Conversation<TAuthorKey> EnsureConversation(string key)
+		public TConversation EnsureConversation(string key)
 		{
 			var conversation = this.Conversations.SingleOrDefault(c => c.Key == key);
 
@@ -56,7 +56,7 @@
 
 			builder.HasDefaultSchema(this.schema);
 			builder.ApplyConfiguration(new CommentMap<TAuthorKey>(this.schema));
-			builder.ApplyConfiguration(new ConversationMap<TAuthorKey>(this.schema));
+			builder.ApplyConfiguration(new ConversationMap<TAuthorKey, TComment>(this.schema));
 		}
 	}
 }

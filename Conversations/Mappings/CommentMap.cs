@@ -24,12 +24,8 @@
 			entity.Property(t => t.ConversationId).HasColumnName("ConversationId");
 
 			entity.EnumerableNavigationProperty(
-				nameof(Comment<TAuthorKey>.Children), 
+				nameof(Comment<TAuthorKey>.Children),
 				Comment<TAuthorKey>.ChildrenFieldName);
-
-			entity.HasOne(t => t.Conversation)
-				.WithMany(t => t.Comments)
-				.HasForeignKey(t => t.ConversationId);
 
 			entity.HasMany(t => t.Children)
 				.WithOne()

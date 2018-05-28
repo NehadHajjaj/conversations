@@ -6,11 +6,12 @@ namespace Conversations
 	using System;
 	using System.Collections.Generic;
 
-	public class Conversation<TAuthorKey>
+	public class Conversation<TAuthorKey, TComment>
+		where TComment : Comment<TAuthorKey>, new()
 	{
 		internal const string CommentsFieldName = nameof(comments);
 		internal const int KeyMaxLength = 80;
-		private readonly List<Comment<TAuthorKey>> comments = new List<Comment<TAuthorKey>>();
+		private readonly List<TComment> comments = new List<TComment>();
 
 		public Conversation() : this(null)
 		{
@@ -22,14 +23,15 @@ namespace Conversations
 			this.CreatedOn = DateTime.UtcNow;
 		}
 
-		public IEnumerable<Comment<TAuthorKey>> Comments => this.comments.AsReadOnly();
+		public IEnumerable<TComment> Comments => this.comments.AsReadOnly();
 		public DateTime CreatedOn { get; private set; }
 		public int Id { get; private set; }
 		public string Key { get; private set; }
 
-		public Comment<TAuthorKey> AddComment(TAuthorKey authorId, string text)
+		public TComment AddComment(TAuthorKey authorId, string text)
 		{
-			var comment = new Comment<TAuthorKey>(this, authorId, text);
+			var comment = new TComment();
+			comment.Initialize(this.Id, authorId, text);
 
 			this.comments.Add(comment);
 

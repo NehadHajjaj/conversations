@@ -11,27 +11,22 @@ namespace Conversations
 		internal const string ChildrenFieldName = nameof(children);
 		private readonly List<Comment<TAuthorKey>> children = new List<Comment<TAuthorKey>>();
 
-		private Comment()
+		public Comment()
 		{
 			// This constructor is used by EF only.
 		}
 
-		internal Comment(Conversation<TAuthorKey> conversation, TAuthorKey authorId, string text)
+		protected internal Comment(int conversationId, TAuthorKey authorId, string text)
 		{
-			this.Conversation = conversation;
-			this.ConversationId = conversation.Id;
-			this.ParentId = null;
-			this.AuthorId = authorId;
-			this.PostedOn = DateTime.UtcNow;
-			this.Text = text;
+			this.Initialize(conversationId, authorId, text);
 		}
 
 		public TAuthorKey AuthorId { get; private set; }
 		public IEnumerable<Comment<TAuthorKey>> Children => this.children.AsReadOnly();
-		public Conversation<TAuthorKey> Conversation { get; private set; }
 		public int ConversationId { get; private set; }
 		public int Id { get; private set; }
 		public int? ParentId { get; private set; }
+
 		public DateTime PostedOn { get; private set; }
 		public string Text { get; private set; }
 
@@ -39,7 +34,6 @@ namespace Conversations
 		{
 			var reply = new Comment<TAuthorKey>
 			{
-				Conversation = this.Conversation,
 				ConversationId = this.ConversationId,
 				ParentId = this.Id,
 				AuthorId = authorId,
@@ -50,6 +44,18 @@ namespace Conversations
 			this.children.Add(reply);
 
 			return reply;
+		}
+
+		internal void Initialize(
+			int conversationId,
+			TAuthorKey authorId,
+			string text)
+		{
+			this.ConversationId = conversationId;
+			this.ParentId = null;
+			this.AuthorId = authorId;
+			this.PostedOn = DateTime.UtcNow;
+			this.Text = text;
 		}
 	}
 }

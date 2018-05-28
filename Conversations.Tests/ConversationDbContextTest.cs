@@ -14,12 +14,12 @@
 			this.repository = this.GetDbContext();
 		}
 
-		private ConversationsDbContext<int, Conversation<int>, Comment<int>> GetDbContext()
+		private ConversationsDbContext<int> GetDbContext()
 		{
-			return new ConversationsDbContext<int, Conversation<int>, Comment<int>>(this.options, "cnv");
+			return new ConversationsDbContext<int>(this.options, "cnv");
 		}
 
-		private readonly ConversationsDbContext<int, Conversation<int>, Comment<int>> repository;
+		private readonly ConversationsDbContext<int> repository;
 		private readonly DbContextOptions options;
 
 		[Fact]
@@ -41,7 +41,7 @@
 		public void CanEnsureExistingConversation()
 		{
 			// Create conversation.
-			var c1 = new Conversation<int>(Guid.NewGuid().ToString());
+			var c1 = new Conversation<int, Comment<int>>(Guid.NewGuid().ToString());
 			this.repository.Conversations.Add(c1);
 			this.repository.SaveChanges();
 
